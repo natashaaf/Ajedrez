@@ -30,6 +30,26 @@ public class Main {
     public static int[][] movimientoAlfil(int fila, int columna) {
         int[][] tablero = new int[8][8];
 
+        // 4 direções diagonais do bispo
+        int[][] direcciones = {
+                {1, 1},   // diagonal para baixo-direita    Desce 1 linha, anda 1 coluna pra direita +
+                {1, -1},  // diagonal para baixo-esquerda   Desce 1 linha, anda 1 coluna pra esquerda (volta -)
+                {-1, 1},  // diagonal para cima-direita     Sobe 1 linha (volta -), anda 1 coluna pra direita
+                {-1, -1}  // diagonal para cima-esquerda    Sobe 1 linha, anda 1 coluna pra esquerda (volta -)
+        };
+
+        // Para cada direção, o bispo avança até sair do tabuleiro
+        for (int[] dir : direcciones) {
+            int nuevaFila = fila + dir[0];
+            int nuevaColumna = columna + dir[1];
+
+            while (nuevaFila >= 0 && nuevaFila < 8 && nuevaColumna >= 0 && nuevaColumna < 8) {  // estiver dentro do tabuleiro 8x8
+                tablero[nuevaFila][nuevaColumna] = 1;  // se a posicao for 1
+
+                nuevaFila += dir[0];
+                nuevaColumna += dir[1];     //bispo continua andando mais um passo/ coluna y linha
+            }
+        }
 
         return tablero;
     }
