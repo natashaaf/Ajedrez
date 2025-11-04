@@ -7,19 +7,19 @@ public class Main {
 
 
     public static int[][] movimientoCaballo(int fila, int columna) {
-        int[][] tablero = new int[8][8];
+        int[][] tablero = new int[8][8];  //Cria uma matriz 8x8 de zeros
 
         int[][] movimientos = {
                 {2, 1}, {2, -1}, {-2, 1}, {-2, -1},
                 {1, 2}, {1, -2}, {-1, 2}, {-1, -2},
         };
 
-        for (int[] movimiento : movimientos) {
-            int nuevaFila = fila + movimiento[0];
-            int nuevaColumna = columna + movimiento[1];
+        for (int[] movimiento : movimientos) {          // recebe todos os movimentos do cavalo
+            int nuevaFila = fila + movimiento[0];       //Calcula a nova linha após o movimento.
+            int nuevaColumna = columna + movimiento[1]; //Calcula a nova columna após o movimento.
 
-            if (nuevaFila != nuevaColumna) {
-                return tablero;
+            if (nuevaFila >= 0 && nuevaFila < 8 && nuevaColumna >= 0 && nuevaColumna < 8) {   //verifica se o movimento ta dentro do tabuleiro
+                tablero[nuevaFila][nuevaColumna] = 1;   //Se nova posiçao for igual 1. É uma posicao valida
             }
         }
 
@@ -29,6 +29,8 @@ public class Main {
 
     public static int[][] movimientoAlfil(int fila, int columna) {
         int[][] tablero = new int[8][8];
+
+
         return tablero;
     }
 
